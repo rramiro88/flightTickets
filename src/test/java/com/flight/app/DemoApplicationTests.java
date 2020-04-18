@@ -54,6 +54,7 @@ class DemoApplicationTests {
 				.arrivalTime("19:45")
 				.departureDate(new Date())
 				.arrivalDate(new Date())
+				.passengerAge(40)
 				.build();
 	}
 
