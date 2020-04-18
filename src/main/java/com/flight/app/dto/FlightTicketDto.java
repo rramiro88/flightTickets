@@ -16,8 +16,10 @@ public class FlightTicketDto {
     private Long itineraryId;
     private Date departureDate;
     private Date arrivalDate;
-    private Date departureTime;
-    private Date arrivalTime;
+
+    private String departureTime;
+
+    private String arrivalTime;
 
     private String
             cityOfOrigin,

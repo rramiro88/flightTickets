@@ -1,6 +1,7 @@
 package com.flight.app.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,13 +28,11 @@ public class FlightTicket {
     @NotNull
     private Date arrivalDate;
 
-    @Temporal(TemporalType.TIME)
     @NotNull
-    private Date departureTime;
+    private String departureTime;
 
-    @Temporal(TemporalType.TIME)
     @NotNull
-    private Date arrivalTime;
+    private String arrivalTime;
 
     @NotNull
     private String cityOfOrigin;

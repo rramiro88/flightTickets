@@ -50,8 +50,8 @@ class DemoApplicationTests {
 				.luggageStorage(true)
 				.destinationCity("testCity1")
 				.cityOfOrigin("testCity2")
-				.departureTime(new Date())
-				.arrivalTime(new Date())
+				.departureTime("15:30")
+				.arrivalTime("19:45")
 				.departureDate(new Date())
 				.arrivalDate(new Date())
 				.build();
