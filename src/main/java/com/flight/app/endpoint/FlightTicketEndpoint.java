@@ -47,7 +47,7 @@ public class FlightTicketEndpoint {
             return ResponseEntity.ok(service.insert(converter.toEntity(dto)));
 
         }catch (Exception e){
-            return new ResponseEntity<>("The entity couldn't be created", HttpStatus.CONFLICT);
+            return new ResponseEntity<>("The entity couldn't be created. Please check all fields, they're all required ", HttpStatus.CONFLICT);
         }
 
 

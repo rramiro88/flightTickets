@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
@@ -20,20 +21,33 @@ public class FlightTicket {
     private Long itineraryId;
 
     @Temporal(TemporalType.DATE)
+    @NotNull
     private Date departureDate;
     @Temporal(TemporalType.DATE)
+    @NotNull
     private Date arrivalDate;
 
     @Temporal(TemporalType.TIME)
+    @NotNull
     private Date departureTime;
+
     @Temporal(TemporalType.TIME)
+    @NotNull
     private Date arrivalTime;
 
-    private String
-            cityOfOrigin,
-            destinationCity,
-            passengerName;
+    @NotNull
+    private String cityOfOrigin;
+
+    @NotNull
+    private String destinationCity;
+
+    @NotNull
+    private String passengerName;
+
+    @NotNull
     private Boolean luggageStorage;
+
+    @NotNull
     private Float price;
 
 }
