@@ -45,6 +45,9 @@ public class FlightTicket {
     private String passengerName;
 
     @NotNull
+    private Integer passengerAge;
+
+    @NotNull
     private Boolean luggageStorage;
 
     @NotNull

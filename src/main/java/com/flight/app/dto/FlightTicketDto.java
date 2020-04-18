@@ -25,4 +25,5 @@ public class FlightTicketDto {
             passengerName;
     private Boolean luggageStorage;
     private Float price;
+    private Integer passengerAge;
 }

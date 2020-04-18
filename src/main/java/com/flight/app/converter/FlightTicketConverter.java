@@ -19,6 +19,7 @@ public class FlightTicketConverter {
                 .luggageStorage(dto.getLuggageStorage())
                 .passengerName(dto.getPassengerName())
                 .price(dto.getPrice())
+                .passengerAge(dto.getPassengerAge())
                 .build();
     }
     
@@ -34,6 +35,7 @@ public class FlightTicketConverter {
                 .luggageStorage(entity.getLuggageStorage())
                 .passengerName(entity.getPassengerName())
                 .price(entity.getPrice())
+                .passengerAge(entity.getPassengerAge())
                 .build();
     }
     
