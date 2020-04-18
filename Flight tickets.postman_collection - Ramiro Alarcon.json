@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "7854bb62-b436-4d7f-af91-16e6eb8a8bd3",
+		"name": "Flight tickets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Find by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/ticket/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save ticket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\"departureDate\":\"2020-01-01\",\n\t\"arrivalDate\":\"2020-01-05\",\n\t\"departureTime\":\"2020-01-01T00:00:00.000+0000\",\n\t\"arrivalTime\":\"2020-01-01T00:00:00.000+0000\",\n\t\"destinationCity\":\"Cancun\",\n\t\"cityOfOrigin\":\"Asuncion\",\n\t\"passengerName\":\"Ramiro Alarcon\",\n\t\"luggageStorage\":true,\n\t\"price\":250.6\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/ticket",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
