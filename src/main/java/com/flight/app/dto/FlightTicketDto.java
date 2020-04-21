@@ -5,7 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 @Data
 @AllArgsConstructor
@@ -14,12 +16,14 @@ import java.util.Date;
 public class FlightTicketDto {
 
     private Long itineraryId;
-    private Date departureDate;
-    private Date arrivalDate;
 
-    private String departureTime;
+    private LocalDate departureDate;
 
-    private String arrivalTime;
+    private LocalDate arrivalDate;
+
+    private LocalTime departureTime;
+
+    private LocalTime arrivalTime;
 
     private String
             cityOfOrigin,

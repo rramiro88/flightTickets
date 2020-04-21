@@ -7,7 +7,6 @@ import com.flight.app.service.FlightTicketService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,11 +22,9 @@ import org.springframework.web.bind.annotation.*;
 )
 public class FlightTicketEndpoint {
 
-    @Autowired
-    private FlightTicketService service;
+    private final FlightTicketService service;
 
-    @Autowired
-    private FlightTicketConverter converter;
+    private final FlightTicketConverter converter;
 
     @GetMapping(value = "/{id}")
     @ApiOperation(value = "Finds a ticket", nickname = "findTicket")
@@ -53,8 +50,9 @@ public class FlightTicketEndpoint {
     public ResponseEntity createTicket(@RequestBody FlightTicketDto dto){
 
         try {
-
-            return ResponseEntity.ok(service.insert(converter.toEntity(dto)));
+            FlightTicket flightTicket = service.insert(converter.toEntity(dto));
+            dto.setItineraryId(flightTicket.getItineraryId());
+            return ResponseEntity.ok(converter.toDto(flightTicket));
 
         }catch (Exception e){
             return new ResponseEntity<>("The entity couldn't be created. Please check all fields, they're all required ", HttpStatus.CONFLICT);

@@ -2,6 +2,7 @@ package com.flight.app;
 
 
 import com.flight.app.converter.FlightTicketConverter;
+import com.flight.app.dto.FlightTicketDto;
 import com.flight.app.endpoint.FlightTicketEndpoint;
 import com.flight.app.entity.FlightTicket;
 import com.flight.app.service.FlightTicketService;
@@ -13,8 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-import java.util.Date;
-import java.util.Objects;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 
 @SpringBootTest
@@ -33,12 +35,14 @@ class DemoApplicationTests {
 
 		FlightTicketEndpoint endpoint = new FlightTicketEndpoint(service,converter);
 		FlightTicket ticket = generateTicket();
-		endpoint.createTicket(converter.toDto(ticket));
+		FlightTicketDto dto = converter.toDto(ticket);
+		endpoint.createTicket(dto);
 
-		ResponseEntity responseEntity = endpoint.findTicket(ticket.getItineraryId());
+		ResponseEntity response = endpoint.findTicket(ticket.getItineraryId());
+		FlightTicket responseEntity = (FlightTicket) response.getBody();
 
-		Assert.assertEquals(200, responseEntity.getStatusCodeValue());
-		Assert.assertEquals("testCity2", ((FlightTicket) Objects.requireNonNull(responseEntity.getBody())).getCityOfOrigin());
+		Assert.assertEquals(200, response.getStatusCodeValue());
+		Assert.assertEquals(responseEntity,ticket);
 
 	}
 
@@ -50,10 +54,10 @@ class DemoApplicationTests {
 				.luggageStorage(true)
 				.destinationCity("testCity1")
 				.cityOfOrigin("testCity2")
-				.departureTime("15:30")
-				.arrivalTime("19:45")
-				.departureDate(new Date())
-				.arrivalDate(new Date())
+				.departureTime(LocalTime.of(20,15))
+				.arrivalTime(LocalTime.of(21,40))
+				.departureDate(LocalDate.of(2020, 3,10))
+				.arrivalDate(LocalDate.of(2020,3,11))
 				.passengerAge(40)
 				.build();
 	}
