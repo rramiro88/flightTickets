@@ -42,7 +42,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\n\t\"departureDate\":\"2020-01-01\",\n\t\"arrivalDate\":\"2020-01-05\",\n\t\"departureTime\":\"2020-01-01T00:00:00.000+0000\",\n\t\"arrivalTime\":\"2020-01-01T00:00:00.000+0000\",\n\t\"destinationCity\":\"Cancun\",\n\t\"cityOfOrigin\":\"Asuncion\",\n\t\"passengerName\":\"Ramiro Alarcon\",\n\t\"luggageStorage\":true,\n\t\"price\":250.6\n}"
+					"raw": "{\n\t\n\t\"departureDate\":\"2020-05-15\",\n\t\"arrivalDate\":\"2020-05-16\",\n\t\"departureTime\":\"12:10\",\n\t\"arrivalTime\":\"20:15\",\n\t\"destinationCity\":\"Cancun\",\n\t\"cityOfOrigin\":\"Asuncion\",\n\t\"passengerName\":\"Ramiro Alarcon\",\n\t\"luggageStorage\":true,\n\t\"price\":250.6,\n\t\"passengerAge\":31\n}"
 				},
 				"url": {
 					"raw": "localhost:8080/ticket",
